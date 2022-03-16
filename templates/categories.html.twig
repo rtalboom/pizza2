@@ -1,2 +1,16 @@
+{% extends 'base.html.twig'%}
 
-hallo
+
+{% block body %}
+
+    <h1>Pizzaria Sopranos</h1>
+    <ul>
+        {% for value in categories %}
+
+            <li>{{ value }}</li>
+        {% endfor %}
+
+    </ul>
+
+
+{% endblock %}
