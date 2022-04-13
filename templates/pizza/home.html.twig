@@ -1,0 +1,29 @@
+{% extends 'base.html.twig'%}
+{% block title %}Pizza Sopranos Home{% endblock %}
+{% block body %}
+
+
+
+    <div class="container">
+        <div class="card-deck">
+            <div class="row">
+                {% for category in category %}
+
+                    <div class="col-sm-12 col-md-9 col-lg-4">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ category.img }}" alt="Card image">
+                            <div class="card-body">
+                                <p>{{ category.name }}</p>
+                                <p class="card-text">Bekijk de lekkerste pizza's bij deze categorie.</p>
+                                <a href="pizza/{{ category.id }}" class="btn btn-danger">Naar Pizza {{ category.name }}</a>
+                                {#                                <a href="#" class="btn btn-danger">Naar Pizza  </a>#}
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
