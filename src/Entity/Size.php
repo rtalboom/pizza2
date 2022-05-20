@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\PizzaRepository;
+use App\Repository\SizeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PizzaRepository::class)]
-class Pizza
+#[ORM\Entity(repositoryClass: SizeRepository::class)]
+class Size
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -18,17 +18,7 @@ class Pizza
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $img;
-
-    #[ORM\Column(type: 'text', nullable: true)]
-    private $description;
-
-    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'pizza')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $category;
-
-    #[ORM\OneToMany(mappedBy: 'pizza', targetEntity: Order::class)]
+    #[ORM\OneToMany(mappedBy: 'size', targetEntity: Order::class)]
     private $orders;
 
     public function __construct()
@@ -53,42 +43,6 @@ class Pizza
         return $this;
     }
 
-    public function getImg(): ?string
-    {
-        return $this->img;
-    }
-
-    public function setImg(?string $img): self
-    {
-        $this->img = $img;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?Category $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Order>
      */
@@ -101,7 +55,7 @@ class Pizza
     {
         if (!$this->orders->contains($order)) {
             $this->orders[] = $order;
-            $order->setPizza($this);
+            $order->setSize($this);
         }
 
         return $this;
@@ -111,8 +65,8 @@ class Pizza
     {
         if ($this->orders->removeElement($order)) {
             // set the owning side to null (unless already changed)
-            if ($order->getPizza() === $this) {
-                $order->setPizza(null);
+            if ($order->getSize() === $this) {
+                $order->setSize(null);
             }
         }
 
