@@ -15,17 +15,16 @@
             <div class="row">
                 {% for pizza in pizza %}
 
-                <div class="col-sm-12 col-md-9 col-lg-4">
+                <div class="col-md-4">
                     <div class="card">
                             <div class="card-body">
                                 <img class="card-img-top" src="{{ pizza.img }}" alt="Card image">
                                 <p>{{ pizza.name }}</p>
                                 <p class="card-text">Bekijk de lekkerste pizza's bij deze categorie.</p>
-                                <button class="btn btn-warning" onclick="window.location.href='{{ path('app_order',{id:pizza.id}) }}'">Bestel Pizza {{ pizza.name }}</button>
+                                <button class="btn btn-info" onclick="window.location.href='{{ path('app_order',{id:pizza.id}) }}'">Bestel Pizza {{ pizza.name }}</button>
                             </div>
                             </div>
                         </div>
-                    </div>
 
                 {% endfor %}
             </div>
