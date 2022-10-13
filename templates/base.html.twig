@@ -16,7 +16,7 @@
             <a class="pl-2 d-inline" href="{{ path('app_home') }}" style="color: #444;">Home</a>
             <a class="pl-2 d-inline" href="{{ path('pizza_showorders') }}" style="color: #444;">Orders</a>
             <a class="pl-2 d-inline" href="{{ path('pizza_contact') }}" style="color: #444;">Contactpagina</a>
-            <a class="pl-2 d-inline" href="#" style="color: #444;">inloggen</a>
+            <a class="pl-2 d-inline" href="{{ path('app_inlog') }}" style="color: #444;">inloggen</a>
         </a>
     </nav>
 </header>
@@ -29,9 +29,9 @@
 {% block body %}{% endblock %}
 </body>
 
-<footer class="mt-5 p-3 text-center">
-    <a class="text-white">By: Rachel Talboom</a>
-</footer>
 {% block javascripts %}{% endblock %}
+<footer class="mt-5 p-3 text-center">
+    <a class="text-black">By: Rachel Talboom</a>
+</footer>
 </body>
 </html>
