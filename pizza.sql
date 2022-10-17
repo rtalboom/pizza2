@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2022 at 11:59 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Gegenereerd op: 17 okt 2022 om 12:00
+-- Serverversie: 10.4.24-MariaDB
+-- PHP-versie: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Tabelstructuur voor tabel `category`
 --
 
 CREATE TABLE `category` (
@@ -34,7 +34,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `category`
+-- Gegevens worden geëxporteerd voor tabel `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `img`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `category` (`id`, `name`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doctrine_migration_versions`
+-- Tabelstructuur voor tabel `doctrine_migration_versions`
 --
 
 CREATE TABLE `doctrine_migration_versions` (
@@ -55,7 +55,7 @@ CREATE TABLE `doctrine_migration_versions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `doctrine_migration_versions`
+-- Gegevens worden geëxporteerd voor tabel `doctrine_migration_versions`
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
@@ -71,7 +71,7 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messenger_messages`
+-- Tabelstructuur voor tabel `messenger_messages`
 --
 
 CREATE TABLE `messenger_messages` (
@@ -87,7 +87,24 @@ CREATE TABLE `messenger_messages` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pizza`
+-- Tabelstructuur voor tabel `order`
+--
+
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL,
+  `size_id` int(11) DEFAULT NULL,
+  `pizza_id` int(11) DEFAULT NULL,
+  `fname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `adress` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `zipcode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `pizza`
 --
 
 CREATE TABLE `pizza` (
@@ -99,76 +116,131 @@ CREATE TABLE `pizza` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pizza`
+-- Gegevens worden geëxporteerd voor tabel `pizza`
 --
 
 INSERT INTO `pizza` (`id`, `name`, `img`, `description`, `category_id`) VALUES
-(1, 'Salami Pizza', '/images/PizzaVlees.jpg', 'Salami', 1),
-(2, 'Peperoni Pizza', '/images/PizzaVlees.jpg', 'Peperoni', 1),
-(3, 'Ham Pizza', '/images/PizzaVlees.jpg', 'Ham', 1),
-(4, 'Spinazie', '/images/VeggiPizza.jpg\n', 'Spinazie', 2),
-(5, 'Aubergine', '/images/VeggiPizza.jpg\n', 'Aubergine', 2),
-(6, 'Tonijn', '/images/PizzaVis.jpg', 'Tonijn', 3),
-(7, 'Haring', '/images/PizzaVis.jpg', 'Haring', 3);
+(1, 'Salami Pizza', '/images/Salami.jpg', 'Salami', 1),
+(2, 'Pepperoni Pizza', '/images/Pepperoni.jpg', 'Pepperoni', 1),
+(3, 'Kapsalon Pizza', '/images/Kapsalon.jpg', 'Kapsalon', 1),
+(4, 'Spinazie Pizza', '/images/Spinazie.jpg\n', 'Spinazie', 2),
+(5, 'Aubergine ', '/images/Aubergine.jpg\n', 'Aubergine', 2),
+(6, 'Tonijn Pizza', '/images/Tonijn.jpg', 'Tonijn', 3),
+(7, 'Haring Pizza', '/images/Haring.jpg', 'Haring', 3),
+(8, 'Vis Pizza', '/images/Vis.jpg', 'Vis', 3),
+(9, 'Margherita', '/images/Margherita.jpg', 'Margherita', 2);
+
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Tabelstructuur voor tabel `size`
+--
+
+CREATE TABLE `size` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `size`
+--
+
+INSERT INTO `size` (`id`, `name`) VALUES
+(1, 'Large'),
+(2, 'Medium'),
+(3, 'Small');
+
+--
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `category`
+-- Indexen voor tabel `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `doctrine_migration_versions`
+-- Indexen voor tabel `doctrine_migration_versions`
 --
 ALTER TABLE `doctrine_migration_versions`
   ADD PRIMARY KEY (`version`);
 
 --
--- Indexes for table `messenger_messages`
+-- Indexen voor tabel `messenger_messages`
 --
 ALTER TABLE `messenger_messages`
   ADD PRIMARY KEY (`id`),
   ADD KEY `IDX_75EA56E016BA31DB` (`delivered_at`);
 
 --
--- Indexes for table `pizza`
+-- Indexen voor tabel `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_F5299398498DA827` (`size_id`),
+  ADD KEY `IDX_F5299398D41D1D42` (`pizza_id`);
+
+--
+-- Indexen voor tabel `pizza`
 --
 ALTER TABLE `pizza`
   ADD PRIMARY KEY (`id`),
   ADD KEY `IDX_CFDD826F12469DE2` (`category_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indexen voor tabel `size`
+--
+ALTER TABLE `size`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT voor een tabel `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `messenger_messages`
+-- AUTO_INCREMENT voor een tabel `messenger_messages`
 --
 ALTER TABLE `messenger_messages`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pizza`
+-- AUTO_INCREMENT voor een tabel `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT voor een tabel `pizza`
 --
 ALTER TABLE `pizza`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT voor een tabel `size`
+--
+ALTER TABLE `size`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Beperkingen voor geëxporteerde tabellen
 --
 
 --
--- Constraints for table `pizza`
+-- Beperkingen voor tabel `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `FK_F5299398498DA827` FOREIGN KEY (`size_id`) REFERENCES `size` (`id`),
+  ADD CONSTRAINT `FK_F5299398D41D1D42` FOREIGN KEY (`pizza_id`) REFERENCES `pizza` (`id`);
+
+--
+-- Beperkingen voor tabel `pizza`
 --
 ALTER TABLE `pizza`
   ADD CONSTRAINT `FK_CFDD826F12469DE2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
