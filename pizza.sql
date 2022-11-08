@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 17 okt 2022 om 12:00
+-- Gegenereerd op: 08 nov 2022 om 09:42
 -- Serverversie: 10.4.24-MariaDB
 -- PHP-versie: 8.1.6
 
@@ -66,7 +66,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220413135652', '2022-04-13 16:12:11', 174),
 ('DoctrineMigrations\\Version20220519080505', '2022-05-19 10:05:28', 392),
 ('DoctrineMigrations\\Version20220519081141', '2022-05-19 10:11:58', 266),
-('DoctrineMigrations\\Version20220519082524', '2022-05-19 10:25:31', 137);
+('DoctrineMigrations\\Version20220519082524', '2022-05-19 10:25:31', 137),
+('DoctrineMigrations\\Version20221108075454', '2022-11-08 08:55:12', 214);
 
 -- --------------------------------------------------------
 
@@ -78,7 +79,7 @@ CREATE TABLE `messenger_messages` (
   `id` bigint(20) NOT NULL,
   `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `headers` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue_name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `available_at` datetime NOT NULL,
   `delivered_at` datetime DEFAULT NULL
@@ -150,6 +151,26 @@ INSERT INTO `size` (`id`, `name`) VALUES
 (2, 'Medium'),
 (3, 'Small');
 
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
+(1, 'test@test.nl', '[]', '$2y$13$Mol4YuvPqPUzT7OiFX/f7uTRNMFmI9iAkBOPjWcU3HfzSzrdEHTE6');
+
 --
 -- Indexen voor geëxporteerde tabellen
 --
@@ -171,7 +192,9 @@ ALTER TABLE `doctrine_migration_versions`
 --
 ALTER TABLE `messenger_messages`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `IDX_75EA56E016BA31DB` (`delivered_at`);
+  ADD KEY `IDX_75EA56E016BA31DB` (`delivered_at`),
+  ADD KEY `IDX_75EA56E0FB7336F0` (`queue_name`),
+  ADD KEY `IDX_75EA56E0E3BD61CE` (`available_at`);
 
 --
 -- Indexen voor tabel `order`
@@ -193,6 +216,13 @@ ALTER TABLE `pizza`
 --
 ALTER TABLE `size`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexen voor tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`);
 
 --
 -- AUTO_INCREMENT voor geëxporteerde tabellen
@@ -227,6 +257,12 @@ ALTER TABLE `pizza`
 --
 ALTER TABLE `size`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT voor een tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Beperkingen voor geëxporteerde tabellen
