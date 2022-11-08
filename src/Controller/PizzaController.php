@@ -28,14 +28,6 @@ class PizzaController extends AbstractController
         return $this->render('pizza/home.html.twig', ['category' => $cat,]);
     }
 
-    /**
-     * @Route ("/contact", name="pizza_contact")
-     */
-    public function contact(): Response
-    {
-        return new Response('Future page to show categories');
-        return $this->render("pizza/contact.html.twig");
-    }
 
     /**
      * @Route ("/pizza/{pizza}", name="app_pizza", methods={"GET","HEAD"})
