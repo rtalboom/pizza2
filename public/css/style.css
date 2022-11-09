@@ -1,6 +1,10 @@
 .topnav{
-    background-color: #134166;
+    background-color: #0d324f;
     overflow: hidden;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    display: block;
 }
 
 .btn-color{

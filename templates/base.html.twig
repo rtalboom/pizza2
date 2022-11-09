@@ -1,3 +1,4 @@
+<div class="background">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Welcome!{% endblock %}</title>
@@ -13,17 +14,23 @@
 </head>
 <body>
 <header>
-    <div class="top nav">
-        <a class="navbar-brand" href="#">
-            <a class="pl-2 d-inline" href="{{ path('app_home') }}" style="color: #444;">Home</a>
-            <a class="pl-2 d-inline" href="{{ path('pizza_showorders') }}" style="color: #444;">Orders</a>
-            <a class="pl-2 d-inline" href="{{ path('app_register') }}" style="color: #444;">Register</a>
-            <a class="pl-2 d-inline" href="{{ path('app_login') }}" style="color: #444;">Login</a>
+    <div class="topnav">
+        <a class="" href="#">
+            <a class="pl-2 d-inline" href="{{ path('app_home') }}" style="color: white;">Home</a>
+            <a class="pl-2 d-inline" href="{{ path('pizza_showorders') }}" style="color: white;">Orders</a>
+            <a class="pl-2 d-inline" href="{{ path('app_contact') }}" style="color: white;">Contact</a>
+
+            {% if app.user %}
+            <a class="pl-2 d-inline" href="{{ path('app_logout') }}" style="color: white;">Logout</a>
+            {% else %}
+                <a class="pl-2 d-inline" href="{{ path('app_register') }}" style="color: white;">Register</a>
+                <a class="pl-2 d-inline" href="{{ path('app_login') }}" style="color: white;">Login</a>
+            {% endif %}
         </a>
     </div>
 </header>
 <body>
-<div class="topnav">
+<div class="btn-color">
     <div class="container-fluid p-4 text-center text-white">
         <h1>Pizza Sopranos</h1>
         <p>Wij serveren pizza met pizza dingen :)</p>
@@ -41,3 +48,4 @@
 </footer>
 </body>
 </html>
+</div>
