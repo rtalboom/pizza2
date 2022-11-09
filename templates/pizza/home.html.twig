@@ -1,4 +1,4 @@
-{% extends 'base.html.twig'%}
+{% extends 'base.html.twig' %}
 {% block title %}Pizza Sopranos Home{% endblock %}
 {% block body %}
     {% for message in app.flashes('success') %}
@@ -7,7 +7,7 @@
         </div>
     {% endfor %}
 
-<br>
+    <br>
     <div class="container">
         <div class="card-deck">
             <div class="row">
@@ -19,7 +19,8 @@
                             <div class="card-body">
                                 <p>{{ category.name }}</p>
                                 <p class="card-text">Bekijk de lekkerste pizza's bij deze categorie.</p>
-                                <a href="pizza/{{ category.id }}" class="btn btn-color text-white">Naar Pizza {{ category.name }}</a>
+                                <a href="pizza/{{ category.id }}" class="btn btn-color text-white">Naar
+                                    Pizza {{ category.name }}</a>
                             </div>
                         </div>
                     </div>

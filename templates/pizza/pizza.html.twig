@@ -1,32 +1,28 @@
-{% extends 'base.html.twig'%}
-
-
-
+{% extends 'base.html.twig' %}
 
     {% block title %}Pizza Sopranos{% endblock %}
 {% block body %}
 
-    {#    <h2 class="text-center">categories ({{ categories|length }})</h2>#}
-
-
 <br>
-    <div class="container">
-        <div class="card-deck">
-            <div class="row">
-                {% for pizza in pizza %}
+<div class="container">
+    <div class="card-deck">
+        <div class="row">
+            {% for pizza in pizza %}
 
                 <div class="col-md-4">
                     <div class="card">
-                            <div class="card-body">
-                                <img class="card-img-top" src="{{ pizza.img }}" alt="Card image">
-                                <p>{{ pizza.name }}</p>
-                                <p class="card-text">Bekijk de lekkerste pizza's bij deze categorie.</p>
-                                <button class="btn btn-color text-white" onclick="window.location.href='{{ path('app_order',{id:pizza.id}) }}'">Bestel Pizza {{ pizza.name }}</button>
-                            </div>
-                            </div>
+                        <div class="card-body">
+                            <img class="card-img-top" src="{{ pizza.img }}" alt="Card image">
+                            <p>{{ pizza.name }}</p>
+                            <p class="card-text">Bekijk de lekkerste pizza's bij deze categorie.</p>
+                            <button class="btn btn-color text-white"
+                                    onclick="window.location.href='{{ path('app_order',{id:pizza.id}) }}'">Bestel
+                                Pizza {{ pizza.name }}</button>
                         </div>
+                    </div>
+                </div>
 
-                {% endfor %}
-            </div>
+            {% endfor %}
         </div>
-{% endblock %}
+    </div>
+    {% endblock %}
