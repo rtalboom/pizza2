@@ -4,9 +4,9 @@
 
 {% block body %}
     <h2>Register</h2>
-<div class="container d-flex">
+    <div class="container d-flex">
 
-    {{ form_start(registrationForm) }}
+        {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
@@ -14,6 +14,6 @@
         {{ form_row(registrationForm.agreeTerms) }}
 
         <button type="submit" class="btn btn-color text-white">Register</button>
-    {{ form_end(registrationForm) }}
-</div>
+        {{ form_end(registrationForm) }}
+    </div>
 {% endblock %}
