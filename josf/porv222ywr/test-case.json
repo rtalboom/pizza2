@@ -144,33 +144,6 @@
       "message" : null,
       "executionTimeMs" : 0,
       "webAction" : {
-        "actionName" : "click",
-        "object" : {
-          "type" : "raw",
-          "object" : "//*[@id=\"order_lname\"]",
-          "pageScannerQuery" : null,
-          "pageObjectReference" : null
-        },
-        "testdata" : {
-          "data" : "",
-          "type" : "text"
-        },
-        "takeScreenshot" : "0",
-        "screenshot" : null
-      },
-      "apiAction" : null,
-      "pageActionReference" : null,
-      "dataSheetReference" : null,
-      "testStepGroup" : null,
-      "contextId" : null,
-      "hasBreakpoint" : false,
-      "isDisabled" : true
-    }, {
-      "version" : null,
-      "result" : null,
-      "message" : null,
-      "executionTimeMs" : 0,
-      "webAction" : {
         "actionName" : "type",
         "object" : {
           "type" : "raw",
@@ -198,33 +171,6 @@
       "message" : null,
       "executionTimeMs" : 0,
       "webAction" : {
-        "actionName" : "click",
-        "object" : {
-          "type" : "raw",
-          "object" : "//*[@id=\"order_adress\"]",
-          "pageScannerQuery" : null,
-          "pageObjectReference" : null
-        },
-        "testdata" : {
-          "data" : "",
-          "type" : "text"
-        },
-        "takeScreenshot" : "0",
-        "screenshot" : null
-      },
-      "apiAction" : null,
-      "pageActionReference" : null,
-      "dataSheetReference" : null,
-      "testStepGroup" : null,
-      "contextId" : null,
-      "hasBreakpoint" : false,
-      "isDisabled" : true
-    }, {
-      "version" : null,
-      "result" : null,
-      "message" : null,
-      "executionTimeMs" : 0,
-      "webAction" : {
         "actionName" : "type",
         "object" : {
           "type" : "raw",
@@ -246,33 +192,6 @@
       "contextId" : null,
       "hasBreakpoint" : false,
       "isDisabled" : false
-    }, {
-      "version" : null,
-      "result" : null,
-      "message" : null,
-      "executionTimeMs" : 0,
-      "webAction" : {
-        "actionName" : "click",
-        "object" : {
-          "type" : "raw",
-          "object" : "//*[@id=\"order_zipcode\"]",
-          "pageScannerQuery" : null,
-          "pageObjectReference" : null
-        },
-        "testdata" : {
-          "data" : "",
-          "type" : "text"
-        },
-        "takeScreenshot" : "0",
-        "screenshot" : null
-      },
-      "apiAction" : null,
-      "pageActionReference" : null,
-      "dataSheetReference" : null,
-      "testStepGroup" : null,
-      "contextId" : null,
-      "hasBreakpoint" : false,
-      "isDisabled" : true
     }, {
       "version" : null,
       "result" : null,
@@ -419,33 +338,6 @@
       "message" : null,
       "executionTimeMs" : 0,
       "webAction" : {
-        "actionName" : "click",
-        "object" : {
-          "type" : "raw",
-          "object" : "//*[@id=\"registration_form_email\"]",
-          "pageScannerQuery" : null,
-          "pageObjectReference" : null
-        },
-        "testdata" : {
-          "data" : "",
-          "type" : "text"
-        },
-        "takeScreenshot" : "0",
-        "screenshot" : null
-      },
-      "apiAction" : null,
-      "pageActionReference" : null,
-      "dataSheetReference" : null,
-      "testStepGroup" : null,
-      "contextId" : null,
-      "hasBreakpoint" : false,
-      "isDisabled" : false
-    }, {
-      "version" : null,
-      "result" : null,
-      "message" : null,
-      "executionTimeMs" : 0,
-      "webAction" : {
         "actionName" : "type",
         "object" : {
           "type" : "raw",
@@ -455,33 +347,6 @@
         },
         "testdata" : {
           "data" : "racheltalboom@mail.nl",
-          "type" : "text"
-        },
-        "takeScreenshot" : "0",
-        "screenshot" : null
-      },
-      "apiAction" : null,
-      "pageActionReference" : null,
-      "dataSheetReference" : null,
-      "testStepGroup" : null,
-      "contextId" : null,
-      "hasBreakpoint" : false,
-      "isDisabled" : false
-    }, {
-      "version" : null,
-      "result" : null,
-      "message" : null,
-      "executionTimeMs" : 0,
-      "webAction" : {
-        "actionName" : "click",
-        "object" : {
-          "type" : "raw",
-          "object" : "//*[@id=\"registration_form_plainPassword\"]",
-          "pageScannerQuery" : null,
-          "pageObjectReference" : null
-        },
-        "testdata" : {
-          "data" : "",
           "type" : "text"
         },
         "takeScreenshot" : "0",
